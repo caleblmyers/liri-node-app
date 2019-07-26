@@ -4,12 +4,14 @@ var moment = require("moment")
 var keys = require("./keys.js")
 var Spotify = require("node-spotify-api")
 var spotify = new Spotify(keys.spotify)
+var fs = require("fs")
 
 function bandsSearch(keyword) {
     axios
         .get("https://rest.bandsintown.com/artists/" + keyword + "/events?app_id=codingbootcamp")
         .then(function (response) {
-            if (response.data.length > 0) {
+            // console.log(response)
+            if (Array.isArray(response.data) && response.data.length > 0) {
                 for (let i = 0; i < response.data.length; i++) {
                     console.log("===================================")
                     console.log("Event #", (i + 1), "for", keyword)
@@ -17,9 +19,14 @@ function bandsSearch(keyword) {
                     console.log("Location:", response.data[i].venue.city, response.data[i].venue.region)
                     console.log("Date:", moment(response.data[i].datetime, "YYYY-MM-DD").format("MM/DD/YYYY"))
                 }
+            } else if (response.data.length === 0) {
+                console.log("Please enter a search term after the command.")
             } else {
                 console.log("No matches found!")
             }
+        })
+        .catch(function (err) {
+            console.log(err.response.data.errorMessage)
         })
 }
 
@@ -74,19 +81,48 @@ function omdbSearch(keyword) {
         })
 }
 
-switch (process.argv[2]) {
-    case "concert-this":
-        bandsSearch(process.argv[3])
-        break;
+function randomSearch() {
+    fs.readFile("random.txt", "utf8", function(error, data) {
+        if (error) {
+            return console.log(error)
+        }
 
-    case "spotify-this-song":
-        spotifySearch(process.argv[3])
-        break;
-
-    case "movie-this":
-        omdbSearch(process.argv[3])
-        break;
-
-    default:
-        console.log("Not a recognized command")
+        var input = data.split(",")
+        processCommand(input[0], input[1])
+    })
 }
+
+function processCommand(command, input) {
+    switch (command) {
+        case "concert-this":
+            bandsSearch(input)
+            break;
+    
+        case "spotify-this-song":
+            spotifySearch(input)
+            break;
+    
+        case "movie-this":
+            omdbSearch(input)
+            break;
+    
+        case "do-what-it-says":
+            randomSearch()
+            break;
+    
+        default:
+            console.log("Not a recognized command")
+    }
+}
+
+processCommand(process.argv[2], process.argv[3])
+
+
+/*
+
+BUGS:
+-- Difference between error responses
+    -- asdff == no matches found
+    -- asdfad == error given
+
+*/
