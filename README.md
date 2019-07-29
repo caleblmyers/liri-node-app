@@ -29,7 +29,7 @@ Making a search to BandsInTown for Red Hot Chili Peppers
 
  * `node liri.js concert-this Red Hot Chili Peppers`
 
-![concert-this working](./images/concert-working)
+![concert-this working](./images/concert-working.png)
 
 Making a search to Spotify for the song "Wish You Were Here"
 
