@@ -25,26 +25,68 @@ These three items will allow you to make a command with LIRI. (NOTE: `do-what-it
 
 ### Examples
 
-Making a search to BandsInTown for Red Hot Chili Peppers
+# Making a search with BandsInTown
+
+A request with any matches will display relevant information for the first page of results (Default is 20 per page)
 
  * `node liri.js concert-this Red Hot Chili Peppers`
 
 ![concert-this working](./images/concert-working.png)
 
-Making a search to Spotify for the song "Wish You Were Here"
+If a search term is not entered, or there are no matching results, an error will display in the console
+
+![concert-this errors](./images/concert-errors.png)
+
+# Making a search with Spotify
+
+A request with any matches will display relevant information for the first page of results (Default is 20 per page)
 
  * `node liri.js spotify-this-song Wish You Were Here`
 
-Making a search to IMDb for The Goonies
+![spotify-this-song working](./images/spotify-working.png)
+
+If a search term is not entered, a search for "The Sign" by Ace of Base will be made
+
+![spotify-this-song default search](./images/spotify-default.png)
+
+If a search term is entered, but no matches are found, an error will display in the console
+
+![spotify-this-song errors](./images/spotify-errors.png)
+
+# Making a search with IMDb
+
+A search request with a match will display relevant information
 
  * `node liri.js movie-this The Goonies`
 
-Running the command listed in `random.txt`
+![movie-this working](./images/movie-working.png)
+
+If a search term is not entered, a search for "Mr. Nobody" will be made
+
+![spotify-this-song default search](./images/movie-default.png)
+
+If a search term is entered, but no matches are found, an error will display in the console
+
+![spotify-this-song errors](./images/movie-errors.png)
+
+# Running the command listed in `random.txt`
+
+The `do-what-it-says` command looks at the `random.txt` file and runs the command contains
+
+Currently the page contains the `spotify-this-song` command with "I Want it That Way" as a search term
 
  * `node do-what-it-says`
 
+ ![do-what-it-says default](./images/random.png)
+
 ### Details
 
-Tech
+This program utilizes Node.js to run outside of a browser
 
-Process
+In addition, several NPM packages are used: Axios, Dotenv, Node-Spotify-Api, and Moment
+
+The `concert-this` and `movie-this` commands utilize Axios to make API requests to BandsInTown and OMDb, respectively. This information is then parsed for relevant information which is displayed in the console.
+
+The `spotify-this-song` command utilizes the `node-spotify-api` package to make API requests to Spotify with ease. This information is then parsed for relevant information which is displayed in the console.
+
+The `do-what-it-says` command utilizes the stock `fs` package to read `random.txt` and process the command it contains.
