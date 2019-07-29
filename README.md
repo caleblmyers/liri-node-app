@@ -21,59 +21,59 @@ To begin, navigate to your directory containing the program files. You will need
 
  * A term to search for
 
-These three items will allow you to make a command with LIRI. (NOTE: `do-what-it-says` does not require a search term after the command)
+These three items will allow you to make a command with LIRI. (NOTE: `do-what-it-says` does not require a search term after the command).
 
 # Examples
 
 ### Making a search with BandsInTown
 
-A request with any matches will display relevant information for the first page of results (Default is 20 per page)
+A request with any matches will display relevant information for all of them.
 
  * `node liri.js concert-this Red Hot Chili Peppers`
 
 ![concert-this working](./images/concert-working.png)
 
-If a search term is not entered, or there are no matching results, an error will display in the console
+If a search term is not entered, or there are no matching results, an error will display in the console.
 
 ![concert-this errors](./images/concert-errors.png)
 
 ### Making a search with Spotify
 
-A request with any matches will display relevant information for the first page of results (Default is 20 per page)
+A request with any matches will display relevant information for the first page of results (Default is 20 per page).
 
  * `node liri.js spotify-this-song Wish You Were Here`
 
 ![spotify-this-song working](./images/spotify-working.png)
 
-If a search term is not entered, a search for "The Sign" by Ace of Base will be made
+If a search term is not entered, a search for "The Sign" by Ace of Base will be made.
 
 ![spotify-this-song default search](./images/spotify-default.png)
 
-If a search term is entered, but no matches are found, an error will display in the console
+If a search term is entered, but no matches are found, an error will display in the console.
 
 ![spotify-this-song errors](./images/spotify-errors.png)
 
 ### Making a search with IMDb
 
-A search request with a match will display relevant information
+A request with a match will display relevant information related to the movie.
 
  * `node liri.js movie-this The Goonies`
 
 ![movie-this working](./images/movie-working.png)
 
-If a search term is not entered, a search for "Mr. Nobody" will be made
+If a search term is not entered, a search for "Mr. Nobody" will be made.
 
 ![spotify-this-song default search](./images/movie-default.png)
 
-If a search term is entered, but no matches are found, an error will display in the console
+If a search term is entered, but no matches are found, an error will display in the console.
 
 ![spotify-this-song errors](./images/movie-errors.png)
 
 ### Running the command listed in `random.txt`
 
-The `do-what-it-says` command looks at the `random.txt` file and runs the command it contains
+The `do-what-it-says` command looks at the `random.txt` file and runs the command it contains.
 
-Currently the page contains the `spotify-this-song` command with "I Want it That Way" as a search term
+Currently, the page contains the `spotify-this-song` command with "I Want it That Way" as a search term.
 
  * `node do-what-it-says`
 
@@ -81,7 +81,7 @@ Currently the page contains the `spotify-this-song` command with "I Want it That
 
 # Details
 
-This program utilizes Node.js to run outside of a browser
+This program utilizes Node.js to run outside of a browser.
 
 In addition, several NPM packages are used: Axios, Dotenv, Node-Spotify-Api, and Moment
 
