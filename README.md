@@ -23,9 +23,9 @@ To begin, navigate to your directory containing the program files. You will need
 
 These three items will allow you to make a command with LIRI. (NOTE: `do-what-it-says` does not require a search term after the command)
 
-### Examples
+# Examples
 
-# Making a search with BandsInTown
+### Making a search with BandsInTown
 
 A request with any matches will display relevant information for the first page of results (Default is 20 per page)
 
@@ -37,7 +37,7 @@ If a search term is not entered, or there are no matching results, an error will
 
 ![concert-this errors](./images/concert-errors.png)
 
-# Making a search with Spotify
+### Making a search with Spotify
 
 A request with any matches will display relevant information for the first page of results (Default is 20 per page)
 
@@ -53,7 +53,7 @@ If a search term is entered, but no matches are found, an error will display in 
 
 ![spotify-this-song errors](./images/spotify-errors.png)
 
-# Making a search with IMDb
+### Making a search with IMDb
 
 A search request with a match will display relevant information
 
@@ -69,9 +69,9 @@ If a search term is entered, but no matches are found, an error will display in 
 
 ![spotify-this-song errors](./images/movie-errors.png)
 
-# Running the command listed in `random.txt`
+### Running the command listed in `random.txt`
 
-The `do-what-it-says` command looks at the `random.txt` file and runs the command contains
+The `do-what-it-says` command looks at the `random.txt` file and runs the command it contains
 
 Currently the page contains the `spotify-this-song` command with "I Want it That Way" as a search term
 
@@ -79,7 +79,7 @@ Currently the page contains the `spotify-this-song` command with "I Want it That
 
  ![do-what-it-says default](./images/random.png)
 
-### Details
+# Details
 
 This program utilizes Node.js to run outside of a browser
 
